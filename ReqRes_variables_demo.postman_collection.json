@@ -1,0 +1,186 @@
+{
+	"info": {
+		"_postman_id": "95dded8c-27b0-479d-a787-5ae6db057de0",
+		"name": "ReqRes_variables_demo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4924228"
+	},
+	"item": [
+		{
+			"name": "GETRequest",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url_global}}/api/users?page=2",
+					"host": [
+						"{{url_global}}"
+					],
+					"path": [
+						"api",
+						"users"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POSTRequest",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"{{name}}\",\r\n    \"job\": \"{{job}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url_collection}}/api/users",
+					"host": [
+						"{{url_collection}}"
+					],
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put Request",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"pavan\",\r\n    \"job\": \"engineer\"\r\n}"
+				},
+				"url": {
+					"raw": "{{url_env_qa}}/api/users/605",
+					"host": [
+						"{{url_env_qa}}"
+					],
+					"path": [
+						"api",
+						"users",
+						"605"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteRequest",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"//Local variable\r",
+							"pm.variables.set(\"url_local\", \"https://reqres.in\");\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url_local}}/api/users/605",
+					"host": [
+						"{{url_local}}"
+					],
+					"path": [
+						"api",
+						"users",
+						"605"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"//Global",
+					"pm.globals.set(\"myGlobalVar\", \"xyz\");",
+					"pm.globals.unset(\"myGlobalVar\");",
+					"",
+					"//Collection",
+					"pm.collectionVariables.set(\"myCollectVar\", \"abc\");",
+					"pm.collectionVariables.unset(\"myCollectVar\");",
+					"",
+					"//Environment",
+					"pm.environment.set(\"myEnvVar\", \"123\");",
+					"pm.environment.unset(\"myEnvVar\");",
+					"",
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url_collection",
+			"value": "https://reqres.in",
+			"type": "string"
+		},
+		{
+			"key": "name",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "job",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
